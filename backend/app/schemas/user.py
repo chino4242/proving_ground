@@ -3,7 +3,7 @@ from typing import List, Optional
 from datetime import date
 
 class PerformanceLogEntry(BaseModel):
-    test_id: str
+    exercise_id: str
     date: date
     value: float
     unit: str
