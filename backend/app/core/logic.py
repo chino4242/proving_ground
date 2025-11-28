@@ -1,20 +1,20 @@
 # backend/app/core/logic.py
 from app.db.benchmarks import get_standards
 
-def calculate_rank(test_id: str, value: float, age: int, sex: str) -> dict:
+def calculate_rank(exercise_id: str, value: float, age: int, sex: str) -> dict:
     # 1. Get the correct Rulebook (Men vs Women)
     standards = get_standards(sex)
     
     # 2. Check if the test exists
-    if test_id not in standards:
+    if exercise_id not in standards:
         return {
-            "rank_name": "Unknown Test",
+            "rank_name": "Unknown Exercise",
             "rank_level": "0",
-            "description": "Test ID not found in database."
+            "description": "Exercise ID not found in database."
         }
 
-    test_data = standards[test_id]
-    meta = test_data['meta']
+    test_data = standards[exercise_id]
+    meta = exercise_data['meta']
     scoring_direction = meta['scoring']
     
     # 3. Handle Bodyweight Logic (Future Proofing)
@@ -24,7 +24,7 @@ def calculate_rank(test_id: str, value: float, age: int, sex: str) -> dict:
 
     # 4. Find the correct Age Bracket
     age_bracket = None
-    for bracket in test_data["logic"]:
+    for bracket in exercise_data["logic"]:
         if bracket["minAge"] <= age <= bracket["maxAge"]:
             age_bracket = bracket
             break
