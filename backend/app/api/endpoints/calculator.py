@@ -1,27 +1,28 @@
-from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
-from app.core.logic import calculate_level
+# backend/app/api/endpoints/calculator.py
+from fastapi import APIRouter
+from pydantic import BaseModel # New Import!
+from app.core.logic import calculate_rank
 
 router = APIRouter()
 
+# 1. Define the Shape of the Request (The JSON Body)
 class CalculationRequest(BaseModel):
+    test_id: str
+    value: float
     age: int
     sex: str
-    current_bodyweight: float
-    exercise_id: str
-    raw_value: float
 
+# 2. Update the endpoint to use this Model
 @router.post("/calculate")
 def get_rank(request: CalculationRequest):
-    result_level = calculate_level(
-        sex = request.sex,
-        age = request.age,
-        current_bodyweight= request.current_bodyweight,
-        exercise_id = request.exercise_id,
-        raw_value= request.raw_value
+    """
+    Endpoint to calculate fitness rank using a JSON Body.
+    """
+    # Note: We now access data via 'request.variable_name'
+    result = calculate_rank(
+        test_id=request.test_id, 
+        value=request.value, 
+        age=request.age, 
+        sex=request.sex
     )
-    
-    if result_level == "test_not_found":
-        raise HTTPException(status_code=404, detail="Exercise ID not found")
-    
-    return{"level": result_level}
+    return result
