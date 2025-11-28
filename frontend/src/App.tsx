@@ -3,6 +3,21 @@ import RankCard from './components/RankCard';
 import { calculateRank, type RankResponse } from './services/api';
 import { THEMES } from './data/themes'; 
 
+// 1. Define the "Nice Names" for every exercise ID
+const EXERCISE_DISPLAY_NAMES: { [key: string]: string } = {
+  five_rm_front_squat: "5RM Front Squat",
+  five_rm_incline_bench: "5RM Incline Bench",
+  five_rm_sumo_deadlift: "5RM Narrow Sumo Deadlift",
+  five_rm_weighted_pull_up: "5RM Weighted Pull-up",
+  four_hundred_meter_run: "400m Run",
+  one_mile_run: "1 Mile Run",
+  max_distance_row: "6:00 Max Distance Row",
+  peak_watt_echo_bike: "10s Peak Watt (Echo Bike)",
+  max_calorie_echo_bike: "3:00 Max Calorie (Echo Bike)",
+  kettlebell_swing_test: "100 Kettlebell Swings (Time)",
+  dead_hang: "Dead Hang (Time)"
+};
+
 function App() {
   const [age, setAge] = useState<number>(37);
   const [sex, setSex] = useState<string>('male');
@@ -112,7 +127,8 @@ function App() {
       <div style={{ marginTop: '30px' }}>
         {rankData && (
           <RankCard 
-            exerciseName={exerciseId}
+            // 2. USE THE MAPPING HERE instead of raw ID
+            exerciseName={EXERCISE_DISPLAY_NAMES[exerciseId] || exerciseId}
             resultValue={resultValue.toString()}
             rankName={getThemeDetails(rankData.rank_level).name}
             rankDescription={getThemeDetails(rankData.rank_level).description}
