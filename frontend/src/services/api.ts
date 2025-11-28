@@ -9,7 +9,7 @@ export interface RankResponse {
 }
 
 export const calculateRank = async (
-    testId: string, 
+    exerciseId: string, 
     value: number, 
     age: number, 
     sex: string
@@ -17,7 +17,7 @@ export const calculateRank = async (
     
  
     const response = await axios.post(`${API_URL}/calculate`, {
-      test_id: testId,
+      exercise_id: exerciseId,
       value: value,
       age: age,
       sex: sex
