@@ -12,7 +12,9 @@ export const calculateRank = async (
     exerciseId: string, 
     value: number, 
     age: number, 
-    sex: string
+    sex: string,
+    bodyweight: number
+
   ): Promise<RankResponse> => {
     
  
@@ -20,7 +22,8 @@ export const calculateRank = async (
       exercise_id: exerciseId,
       value: value,
       age: age,
-      sex: sex
+      sex: sex,
+      bodyweight: Number(bodyweight)
     });
   
     return response.data;

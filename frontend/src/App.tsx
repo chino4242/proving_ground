@@ -1,44 +1,55 @@
-// frontend/src/App.tsx
 import { useState } from 'react';
 import RankCard from './components/RankCard';
 import { calculateRank, type RankResponse } from './services/api';
+import { THEMES } from './data/themes'; 
 
 function App() {
-  // 1. State Variables (To store user input)
   const [age, setAge] = useState<number>(37);
   const [sex, setSex] = useState<string>('male');
-  const [exerciseId, setExerciseId] = useState<string>('four_hundred_meter_run');
-  const [resultValue, setResultValue] = useState<number>(0);
   
-  // State to store the calculation coming back from Python
+  const [bodyweight, setBodyweight] = useState<number>(185); 
+  
+  const [exerciseId, setExerciseId] = useState<string>('five_rm_front_squat'); 
+  const [resultValue, setResultValue] = useState<number>(225);
+  
   const [rankData, setRankData] = useState<RankResponse | null>(null);
+  const [currentTheme, setCurrentTheme] = useState<string>('dragon'); 
 
-  // 2. The Function that calls the Backend
   const handleCalculate = async () => {
     try {
-      const data = await calculateRank(testId, resultValue, age, sex);
-      setRankData(data); // Save the result!
+      const data = await calculateRank(exerciseId, resultValue, age, sex, bodyweight);
+      setRankData(data);
     } catch (error) {
       console.error("Error connecting to backend:", error);
       alert("Could not connect to the backend. Is it running?");
     }
   };
 
+  const getThemeDetails = (level: string) => {
+    const theme = THEMES[currentTheme];
+    return theme.ranks[level] || theme.ranks['level0'];
+  };
+
   return (
-    <div style={{ padding: '40px', fontFamily: 'Arial' }}>
-      <h1>Proving Ground Fitness Calculator</h1>
+    <div style={{ padding: '40px', fontFamily: 'Arial', backgroundColor: '#222', minHeight: '100vh', color: 'white' }}>
       
-      {/* --- THE INPUT FORM --- */}
-      <div style={{ background: '#eee', padding: '20px', borderRadius: '8px', maxWidth: '400px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
+        <h1>Proving Ground Fitness</h1>
+        <div>
+          <label style={{ marginRight: '10px' }}>Theme:</label>
+          <select value={currentTheme} onChange={(e) => setCurrentTheme(e.target.value)} style={{ padding: '8px', borderRadius: '4px' }}>
+            {Object.keys(THEMES).map((key) => (
+              <option key={key} value={key}>{THEMES[key].displayName}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+      
+      <div style={{ background: '#333', padding: '20px', borderRadius: '8px', maxWidth: '400px', border: '1px solid #444' }}>
         
         <div style={{ marginBottom: '10px' }}>
           <label>Age: </label>
-          <input 
-            type="number" 
-            value={age} 
-            onChange={(e) => setAge(Number(e.target.value))}
-            style={{ marginLeft: '10px', padding: '5px' }}
-          />
+          <input type="number" value={age} onChange={(e) => setAge(Number(e.target.value))} style={{ marginLeft: '10px', padding: '5px' }} />
         </div>
 
         <div style={{ marginBottom: '10px' }}>
@@ -50,50 +61,63 @@ function App() {
         </div>
 
         <div style={{ marginBottom: '10px' }}>
-          <label>Test: </label>
-          <select value={testId} onChange={(e) => setTestId(e.target.value)} style={{ marginLeft: '10px', padding: '5px' }}>
-            <option value="four_hundred_meter_run">400m Run</option>
-            <option value="five_rm_front_squat">5RM Front Squat</option>
-            <option value="dead_hang">Dead Hang</option>
-            {/* We will add the rest later! */}
+          <label>Bodyweight (lbs): </label>
+          <input 
+            type="number" 
+            value={bodyweight} 
+            onChange={(e) => setBodyweight(Number(e.target.value))} 
+            style={{ marginLeft: '10px', padding: '5px' }} 
+          />
+        </div>
+
+        <div style={{ marginBottom: '10px' }}>
+          <label>Exercise: </label>
+          <select 
+            value={exerciseId} 
+            onChange={(e) => setExerciseId(e.target.value)} 
+            style={{ marginLeft: '10px', padding: '5px', maxWidth: '250px' }}
+          >
+            <optgroup label="Strength (5 Rep Max)">
+              <option value="five_rm_front_squat">Front Squat</option>
+              <option value="five_rm_incline_bench">Incline Bench</option>
+              <option value="five_rm_sumo_deadlift">Narrow Sumo Deadlift</option>
+              <option value="five_rm_weighted_pull_up">Weighted Pull-up</option>
+            </optgroup>
+
+            <optgroup label="Endurance & Speed">
+              <option value="four_hundred_meter_run">400m Run</option>
+              <option value="one_mile_run">1 Mile Run</option>
+              <option value="max_distance_row">6:00 Max Distance Row</option>
+            </optgroup>
+
+            <optgroup label="Power & Capacity">
+              <option value="peak_watt_echo_bike">10s Peak Watt (Echo Bike)</option>
+              <option value="max_calorie_echo_bike">3:00 Max Calorie (Echo Bike)</option>
+              <option value="kettlebell_swing_test">100 Kettlebell Swings (Time)</option>
+              <option value="dead_hang">Dead Hang (Time)</option>
+            </optgroup>
           </select>
         </div>
 
         <div style={{ marginBottom: '20px' }}>
-          <label>My Result: </label>
-          <input 
-            type="number" 
-            value={resultValue} 
-            onChange={(e) => setResultValue(Number(e.target.value))}
-            placeholder="Seconds or Lbs"
-            style={{ marginLeft: '10px', padding: '5px' }}
-          />
+          <label>Result: </label>
+          <input type="number" value={resultValue} onChange={(e) => setResultValue(Number(e.target.value))} placeholder="Val" style={{ marginLeft: '10px', padding: '5px' }} />
         </div>
-
-        <button 
-          onClick={handleCalculate}
-          style={{ 
-            padding: '10px 20px', 
-            background: '#007bff', 
-            color: 'white', 
-            border: 'none', 
-            borderRadius: '5px',
-            cursor: 'pointer',
-            fontWeight: 'bold'
-          }}
-        >
-          Calculate Rank
+        
+        <button onClick={handleCalculate} style={{ width: '100%', padding: '10px', background: '#e74c3c', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' }}>
+          CALCULATE RANK
         </button>
       </div>
 
-      {/* --- THE RESULT DISPLAY --- */}
       <div style={{ marginTop: '30px' }}>
         {rankData && (
           <RankCard 
-            exerciseName={testId}
+            exerciseName={exerciseId}
             resultValue={resultValue.toString()}
-            rankName={rankData.rank_name}
-            rankDescription={rankData.description}
+            rankName={getThemeDetails(rankData.rank_level).name}
+            rankDescription={getThemeDetails(rankData.rank_level).description}
+            bodyweight={bodyweight}
+            calculationDetails={rankData.description} 
           />
         )}
       </div>
