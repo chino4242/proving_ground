@@ -1,6 +1,6 @@
 # backend/app/api/endpoints/calculator.py
 from fastapi import APIRouter
-from pydantic import BaseModel # New Import!
+from pydantic import BaseModel
 from app.core.logic import calculate_rank
 
 router = APIRouter()
@@ -11,6 +11,7 @@ class CalculationRequest(BaseModel):
     value: float
     age: int
     sex: str
+    bodyweight: float = 0
 
 # 2. Update the endpoint to use this Model
 @router.post("/calculate")
@@ -23,6 +24,7 @@ def get_rank(request: CalculationRequest):
         exercise_id=request.exercise_id, 
         value=request.value, 
         age=request.age, 
-        sex=request.sex
+        sex=request.sex,
+        bodyweight= request.bodyweight
     )
     return result

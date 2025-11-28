@@ -1,7 +1,7 @@
 # backend/app/core/logic.py
 from app.db.benchmarks import get_standards
 
-def calculate_rank(exercise_id: str, value: float, age: int, sex: str) -> dict:
+def calculate_rank(exercise_id: str, value: float, age: int, sex: str, bodyweight: float) -> dict:
     # 1. Get the correct Rulebook (Men vs Women)
     standards = get_standards(sex)
     
@@ -13,14 +13,24 @@ def calculate_rank(exercise_id: str, value: float, age: int, sex: str) -> dict:
             "description": "Exercise ID not found in database."
         }
 
-    test_data = standards[exercise_id]
+    exercise_data = standards[exercise_id]
     meta = exercise_data['meta']
     scoring_direction = meta['scoring']
+    unit = meta.get('unit', '')
     
     # 3. Handle Bodyweight Logic (Future Proofing)
     # Your logic handled xBW, but currently the frontend only sends raw value.
     # We will treat 'value' as the final comparison value for now.
     comparison_value = value
+    if unit == 'xBW':
+        if bodyweight <= 0:
+             return {"rank_name": "Error", "rank_level": "0", "description": "Bodyweight required."}
+        
+        # Special case for weighted pull-ups
+        if exercise_id == 'five_rm_weighted_pull_up':
+            comparison_value = (bodyweight + value) / bodyweight
+        else:
+            comparison_value = value / bodyweight
 
     # 4. Find the correct Age Bracket
     age_bracket = None
@@ -50,10 +60,16 @@ def calculate_rank(exercise_id: str, value: float, age: int, sex: str) -> dict:
 
     # Helper function to format the success message
     def create_result(level_key, threshold_val):
+        desc = f"You achieved the standard of {threshold_val}."
+        if unit == 'xBW':
+            desc = f"You achieved {comparison_value:.2f}x BW (Standard: {threshold_val}x BW)."
+        elif unit == 'time':
+             desc = f"You ran {value}s (Standard: {threshold_val}s)."
+
         return {
             "rank_name": rank_map.get(level_key, "Unknown"),
             "rank_level": level_key,
-            "description": f"You achieved the standard of {threshold_val}."
+            "description": desc
         }
 
     # LOGIC A: HIGHER IS BETTER (Lifting)
