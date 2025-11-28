@@ -7,7 +7,7 @@ router = APIRouter()
 
 # 1. Define the Shape of the Request (The JSON Body)
 class CalculationRequest(BaseModel):
-    test_id: str
+    exercise_id: str
     value: float
     age: int
     sex: str
@@ -20,7 +20,7 @@ def get_rank(request: CalculationRequest):
     """
     # Note: We now access data via 'request.variable_name'
     result = calculate_rank(
-        test_id=request.test_id, 
+        exercise_id=request.exercise_id, 
         value=request.value, 
         age=request.age, 
         sex=request.sex
