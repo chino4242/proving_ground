@@ -7,7 +7,7 @@ function App() {
   // 1. State Variables (To store user input)
   const [age, setAge] = useState<number>(37);
   const [sex, setSex] = useState<string>('male');
-  const [testId, setTestId] = useState<string>('four_hundred_meter_run');
+  const [exerciseId, setExerciseId] = useState<string>('four_hundred_meter_run');
   const [resultValue, setResultValue] = useState<number>(0);
   
   // State to store the calculation coming back from Python
@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div style={{ padding: '40px', fontFamily: 'Arial' }}>
-      <h1>Archetype Fitness Calculator</h1>
+      <h1>Proving Ground Fitness Calculator</h1>
       
       {/* --- THE INPUT FORM --- */}
       <div style={{ background: '#eee', padding: '20px', borderRadius: '8px', maxWidth: '400px' }}>
