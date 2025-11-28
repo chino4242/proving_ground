@@ -118,6 +118,7 @@ function App() {
             rankDescription={getThemeDetails(rankData.rank_level).description}
             bodyweight={bodyweight}
             calculationDetails={rankData.description} 
+            rankImage={getThemeDetails(rankData.rank_level).image}
           />
         )}
       </div>

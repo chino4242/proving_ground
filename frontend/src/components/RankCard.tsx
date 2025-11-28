@@ -6,7 +6,8 @@ interface RankCardProps {
   rankName: string;
   rankDescription: string;
   bodyweight?: number;
-  calculationDetails?: string; // New prop for the math explanation
+  calculationDetails?: string; 
+  rankImage?: string; // <--- NEW PROP
 }
 
 const RankCard: React.FC<RankCardProps> = ({ 
@@ -15,7 +16,8 @@ const RankCard: React.FC<RankCardProps> = ({
   rankName, 
   rankDescription,
   bodyweight,
-  calculationDetails
+  calculationDetails,
+  rankImage // <--- Destructure it
 }) => {
   
   const cardStyle = {
@@ -26,7 +28,8 @@ const RankCard: React.FC<RankCardProps> = ({
     maxWidth: '300px',
     backgroundColor: '#f9f9f9',
     fontFamily: 'Arial, sans-serif',
-    color: '#333'
+    color: '#333',
+    textAlign: 'center' as const // Center align for the image
   };
 
   const headerStyle = {
@@ -34,7 +37,8 @@ const RankCard: React.FC<RankCardProps> = ({
     paddingBottom: '8px',
     marginBottom: '8px',
     fontWeight: 'bold' as const,
-    fontSize: '1.2rem'
+    fontSize: '1.2rem',
+    textAlign: 'left' as const
   };
 
   const rankStyle = {
@@ -48,17 +52,16 @@ const RankCard: React.FC<RankCardProps> = ({
     <div style={cardStyle}>
       <div style={headerStyle}>{exerciseName}</div>
       
-      <div style={{ marginBottom: '5px' }}>
+      <div style={{ marginBottom: '5px', textAlign: 'left' }}>
         <strong>My Result: </strong> {resultValue}
       </div>
 
       {bodyweight && (
-        <div style={{ fontSize: '0.9rem', color: '#666', marginBottom: '10px' }}>
+        <div style={{ fontSize: '0.9rem', color: '#666', marginBottom: '10px', textAlign: 'left' }}>
           <strong>Bodyweight: </strong> {bodyweight} lbs
         </div>
       )}
 
-      {/* Math Details Box */}
       {calculationDetails && (
         <div style={{ 
           fontSize: '0.9rem', 
@@ -66,9 +69,26 @@ const RankCard: React.FC<RankCardProps> = ({
           backgroundColor: '#eaf2f8', 
           padding: '8px', 
           borderRadius: '4px',
-          borderLeft: '3px solid #2980b9'
+          borderLeft: '3px solid #2980b9',
+          textAlign: 'left',
+          marginBottom: '15px'
         }}>
           {calculationDetails}
+        </div>
+      )}
+
+      {/* --- NEW: IMAGE DISPLAY --- */}
+      {rankImage && (
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+          <img 
+            src={rankImage} 
+            alt={rankName} 
+            style={{ maxWidth: '100%', height: 'auto', maxHeight: '150px' }} 
+            // Fallback if image not found
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = 'none'; 
+            }}
+          />
         </div>
       )}
 
