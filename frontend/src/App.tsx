@@ -8,6 +8,7 @@ const EXERCISE_DISPLAY_NAMES: { [key: string]: string } = {
   five_rm_front_squat: "5RM Front Squat",
   five_rm_incline_bench: "5RM Incline Bench",
   five_rm_sumo_deadlift: "5RM Narrow Sumo Deadlift",
+  five_rm_overhead_press: "5RM Overhead Press",
   five_rm_weighted_pull_up: "5RM Weighted Pull-up",
   four_hundred_meter_run: "400m Run",
   one_mile_run: "1 Mile Run",
@@ -94,6 +95,7 @@ function App() {
           >
             <optgroup label="Strength (5 Rep Max)">
               <option value="five_rm_front_squat">Front Squat</option>
+              <option value="five_rm_overhead_press">Overhead Press</option>
               <option value="five_rm_incline_bench">Incline Bench</option>
               <option value="five_rm_sumo_deadlift">Narrow Sumo Deadlift</option>
               <option value="five_rm_weighted_pull_up">Weighted Pull-up</option>

@@ -98,6 +98,15 @@ MEN_STANDARDS = {
             {"minAge": 45, "maxAge": 54, "thresholds": [{"level": "level1", "value": 0.91}, {"level": "level2", "value": 1.14}, {"level": "level3", "value": 1.38}, {"level": "level4", "value": 1.60}, {"level": "level5", "value": 1.92}]}
         ]
     },
+    "five_rm_overhead_press": {
+        "meta": {"displayName": "5RM Overhead Press", "unit": "xBW", "scoring": "higher_is_better"},
+        "logic": [
+            {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": .35}, {"level": "level2", "value": .45}, {"level": "level3", "value": .55}, {"level": "level4", "value": .65}, {"level": "level5", "value": .75}]},
+            {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": .36}, {"level": "level2", "value": .46}, {"level": "level3", "value": .56}, {"level": "level4", "value": .66}, {"level": "level5", "value": .76}]},
+            {"minAge": 35, "maxAge": 44, "thresholds": [{"level": "level1", "value": .34}, {"level": "level2", "value": .44}, {"level": "level3", "value": .54}, {"level": "level4", "value": .64}, {"level": "level5", "value": .74}]},
+            {"minAge": 45, "maxAge": 54, "thresholds": [{"level": "level1", "value": 0.3}, {"level": "level2", "value": .4}, {"level": "level3", "value": .5}, {"level": "level4", "value": .60}, {"level": "level5", "value": .7}]}
+        ]
+    },
     "five_rm_weighted_pull_up": {
         "meta": {"displayName": "5RM Weighted Pull-up", "unit": "xBW", "scoring": "higher_is_better"},
         "logic": [
@@ -205,6 +214,15 @@ WOMEN_STANDARDS = {
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 0.78}, {"level": "level2", "value": 0.97}, {"level": "level3", "value": 1.20}, {"level": "level4", "value": 1.36}, {"level": "level5", "value": 1.63}]},
             {"minAge": 35, "maxAge": 44, "thresholds": [{"level": "level1", "value": 0.72}, {"level": "level2", "value": 0.90}, {"level": "level3", "value": 1.09}, {"level": "level4", "value": 1.26}, {"level": "level5", "value": 1.51}]},
             {"minAge": 45, "maxAge": 54, "thresholds": [{"level": "level1", "value": 0.64}, {"level": "level2", "value": 0.80}, {"level": "level3", "value": 0.97}, {"level": "level4", "value": 1.12}, {"level": "level5", "value": 1.34}]}
+        ]
+    },
+    "five_rm_overhead_press": {
+        "meta": {"displayName": "5RM Overhead Press", "unit": "xBW", "scoring": "higher_is_better"},
+        "logic": [
+            {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": .2}, {"level": "level2", "value": .3}, {"level": "level3", "value": .4}, {"level": "level4", "value": .5}, {"level": "level5", "value": .6}]},
+            {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": .21}, {"level": "level2", "value": .31}, {"level": "level3", "value": .41}, {"level": "level4", "value": .51}, {"level": "level5", "value": .61}]},
+            {"minAge": 35, "maxAge": 44, "thresholds": [{"level": "level1", "value": .19}, {"level": "level2", "value": .29}, {"level": "level3", "value": .39}, {"level": "level4", "value": .49}, {"level": "level5", "value": .59}]},
+            {"minAge": 45, "maxAge": 54, "thresholds": [{"level": "level1", "value": 0.15}, {"level": "level2", "value": .25}, {"level": "level3", "value": .35}, {"level": "level4", "value": .45}, {"level": "level5", "value": .55}]}
         ]
     },
     "five_rm_weighted_pull_up": {
