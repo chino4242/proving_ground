@@ -12,7 +12,8 @@ app = FastAPI(
 origins = [
     "http://localhost:5173",  # The React App
     "http://127.0.0.1:5173",  # Alternative localhost URL
-    "https://main.d5801cajcp02c.amplifyapp.com"
+    "https://main.d5801cajcp02c.amplifyapp.com",
+    "*"
 ]
 
 app.add_middleware(
