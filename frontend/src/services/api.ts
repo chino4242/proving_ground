@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1:8000/api';
+const API_URL = 'https://n3c4c8lsk5.execute-api.us-east-1.amazonaws.com/dev/api';
 
 export interface RankResponse {
     rank_name: string;

@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.endpoints import calculator
+from mangum import Mangum
 
 app = FastAPI(
     title="Proving Ground Fitness API",
@@ -30,3 +31,4 @@ def health_check():
     return {"status": "healthy"}
 
 app.include_router(calculator.router, prefix="/api", tags=["Calculator"])
+handler = Mangum(app)
