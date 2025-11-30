@@ -105,7 +105,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-us-east-1-d48aea0b-bd07",
-                "S3Key": "serverless/proving-ground-api/dev/1764505175525-2025-11-30T12:19:35.525Z/proving-ground-api.zip"
+                "S3Key": "serverless/proving-ground-api/dev/1764506117761-2025-11-30T12:35:17.761Z/proving-ground-api.zip"
               },
               "Handler": "app.main.handler",
               "Runtime": "python3.9",
@@ -123,14 +123,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersiondmE1CWUdoGN90vliqOIwbmLrGaQEBxygBQNxUllqrA": {
+          "ApiLambdaVersionSMYnCbcdkmilbnbEjUppmS5pfGByW4vG1EP1Le3jZJk": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "UPT3qp2OLxwcTkce1nrQyBuc5VwbX7mtCwvXfmyNPWM="
+              "CodeSha256": "o6NetFmv9Vefe2ps9lOahSGE12Kus3PFd24eyw2DpdI="
             }
           },
           "ApiGatewayRestApi": {
@@ -255,7 +255,7 @@
               "ApiLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1764505167596": {
+          "ApiGatewayDeployment1764506109128": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -316,7 +316,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersiondmE1CWUdoGN90vliqOIwbmLrGaQEBxygBQNxUllqrA"
+              "Ref": "ApiLambdaVersionSMYnCbcdkmilbnbEjUppmS5pfGByW4vG1EP1Le3jZJk"
             },
             "Export": {
               "Name": "sls-proving-ground-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -378,7 +378,7 @@
         "timeout": 10,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "ApiLambdaVersiondmE1CWUdoGN90vliqOIwbmLrGaQEBxygBQNxUllqrA"
+        "versionLogicalId": "ApiLambdaVersionSMYnCbcdkmilbnbEjUppmS5pfGByW4vG1EP1Le3jZJk"
       }
     },
     "configValidationMode": "warn",
@@ -403,7 +403,7 @@
         "artifactsS3KeyDirname": "serverless/proving-ground-api/dev/code-artifacts",
         "deploymentBucket": "serverless-framework-deployments-us-east-1-d48aea0b-bd07",
         "artifact": "C:\\Users\\ryanj\\OneDrive\\python_work\\proving_ground\\backend\\.serverless\\proving-ground-api.zip",
-        "artifactDirectoryName": "serverless/proving-ground-api/dev/1764505175525-2025-11-30T12:19:35.525Z"
+        "artifactDirectoryName": "serverless/proving-ground-api/dev/1764506117761-2025-11-30T12:35:17.761Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -417,7 +417,7 @@
     "artifact": "C:\\Users\\ryanj\\OneDrive\\python_work\\proving_ground\\backend\\.serverless\\proving-ground-api.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/proving-ground-api/dev/1764505175525-2025-11-30T12:19:35.525Z",
+    "artifactDirectoryName": "serverless/proving-ground-api/dev/1764506117761-2025-11-30T12:35:17.761Z",
     "artifact": "proving-ground-api.zip"
   }
 }
