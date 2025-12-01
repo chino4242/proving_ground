@@ -1,0 +1,8 @@
+.serverless
+backend/.serverless
+node_modules/
+__pycache__/
+*.pyc
+venv/
+env/
+*.zip

@@ -1,33 +1,38 @@
-# "org" ensures this Service is used with the correct Serverless Framework Access Key.
-org: volatile
-# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
-app: proving-ground-backend
 service: proving-ground-api
 
 provider:
   name: aws
   runtime: python3.9
   region: us-east-1
-  memorySize: 256 # Enough for simple math
+  memorySize: 256
   timeout: 10
 
+# OPTIMIZED PACKAGING STRATEGY
 package:
+  individually: true # Compresses function independently
   patterns:
-    - '!venv/**'          # Ignore the virtual environment (huge!)
-    - '!tests/**'         # Ignore tests
-    - '!__pycache__/**'   # Ignore python cache
-    - '!.git/**'          # Ignore git history
-    - '!.gitignore'
-    - '!README.md'
-    - '!requirements.txt' # The plugins handle this, don't need the text file in lambda
+    - '!**'                # 1. Ignore EVERYTHING by default
+    - 'app/**'             # 2. Explicitly include your source code
+    - 'requirements.txt'   # 3. Explicitly include requirements
+    # Note: Plugins will automatically add their dependencies
 
 functions:
   api:
-    handler: app.main.handler # Points to the Mangum handler
+    handler: app.main.handler
+    url: true
     events:
       - http:
-          path: /{proxy+} # Capture ALL paths
+          path: /{proxy+}
           method: any
       - http:
-          path: / # Capture root path
+          path: /
           method: any
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: false 
+    zip: true
+    slim: true

@@ -26,7 +26,7 @@ function App() {
   const [bodyweight, setBodyweight] = useState<number>(185); 
   
   const [exerciseId, setExerciseId] = useState<string>('five_rm_front_squat'); 
-  const [resultValue, setResultValue] = useState<number>(225);
+  const [resultValue, setResultValue] = useState<number>(135);
   
   const [rankData, setRankData] = useState<RankResponse | null>(null);
   const [currentTheme, setCurrentTheme] = useState<string>('dragon'); 
