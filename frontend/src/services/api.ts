@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://n3c4c8lsk5.execute-api.us-east-1.amazonaws.com/dev/api/calculate';
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export interface RankResponse {
     rank_name: string;
@@ -18,7 +18,7 @@ export const calculateRank = async (
   ): Promise<RankResponse> => {
     
  
-    const response = await axios.post(`${API_URL}/calculate`, {
+    const response = await axios.post(`${BASE_URL}/calculate`, {
       exercise_id: exerciseId,
       value: value,
       age: age,
