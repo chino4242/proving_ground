@@ -13,6 +13,41 @@ export interface Theme {
 
 export const THEMES: { [key: string]: Theme } = {
   // --- DRAGON ---
+    samurai: {
+    displayName: "Samurai",
+    ranks: {
+      level5: { 
+        name: "Shogun", 
+        image: "/themes/samurai/level5.png", 
+        description: "THE SUPREME RULER. Your word is law. Unmatched power and command over the empire." 
+      },
+      level4: { 
+        name: "Daimyo", 
+        image: "/themes/samurai/level4.png", 
+        description: "WARLORD. You command armies and shape the battlefield. Your strength inspires thousands." 
+      },
+      level3: { 
+        name: "Samurai", 
+        image: "/themes/samurai/level3.png", 
+        description: "WARRIOR. Sworn to duty. Your blade is an extension of your soul. You fight with precision." 
+      },
+      level2: { 
+        name: "Ronin", 
+        image: "/themes/samurai/level2.png", 
+        description: "WANDERER. Masterless and free. You have skill, but rely only on your own strength to survive." 
+      },
+      level1: { 
+        name: "Ashigaru", 
+        image: "/themes/samurai/level1.png", 
+        description: "FOOT SOLDIER. One of many. Your spear is sharp, but your discipline is tested daily." 
+      },
+      level0: { 
+        name: "Peasant", 
+        image: "/themes/samurai/level0.png", 
+        description: "VILLAGER. Humble beginnings. You work the land, unaware of the warrior's path ahead." 
+      },
+    },
+  },
   dragon: {
     displayName: "Draconic",
     ranks: {
@@ -87,4 +122,5 @@ export const THEMES: { [key: string]: Theme } = {
       level0: { name: "Thrall", image: "/themes/viking/level0.png", description: "UNTESTED. Not yet proven." },
     },
   },
-};
+}
+;
