@@ -14,9 +14,10 @@ export const calculateRank = async (
     age: number, 
     sex: string,
     bodyweight: number
-
   ): Promise<RankResponse> => {
-    
+
+    console.log("🚀 Requesting:", `${BASE_URL}/calculate`);
+
  
     const response = await axios.post(`${BASE_URL}/calculate`, {
       exercise_id: exerciseId,
