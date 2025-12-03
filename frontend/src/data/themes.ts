@@ -68,9 +68,9 @@ export const THEMES: { [key: string]: Theme } = {
   dinosaur: {
     displayName: "Apex Predator",
     ranks: {
-      level5: { name: "Titanosaur", image: "/themes/dinosaur/level5.png", description: "EARTH SHAKER. A mountain of muscle. Nothing in history has been stronger." },
+      level5: { name: "Spinosaurus", image: "/themes/dinosaur/level5.png", description: "THE COLOSSUS. The largest predator to ever walk or swim. Master of two realms, your dominance is absolute." },
       level4: { name: "T-Rex", image: "/themes/dinosaur/level4.png", description: "TYRANT KING. Your bite force crushes bone. When you roar, the world listens." },
-      level3: { name: "Triceratops", image: "/themes/dinosaur/level3.png", description: "LIVING TANK. Your defense is impenetrable. You hold your ground against anyone." },
+      level3: { name: "Allosaurus", image: "/themes/dinosaur/level3.png", description: "JURASSIC DOMINATOR. Before the Tyrant, you ruled. Agile, vicious, and relentless in the hunt." },
       level2: { name: "Raptor", image: "/themes/dinosaur/level2.png", description: "CLEVER GIRL. Fast, aggressive, and lethal in a pack." },
       level1: { name: "Compy", image: "/themes/dinosaur/level1.png", description: "SCAVENGER. Small, fast, and unnoticed. You survive by staying out of the way." },
       level0: { name: "Fossil", image: "/themes/dinosaur/level0.png", description: "BURIED. Waiting to be discovered." },

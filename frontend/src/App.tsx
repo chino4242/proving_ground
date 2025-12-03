@@ -5,6 +5,7 @@ import { THEMES } from './data/themes';
 
 // 1. MAPPING DICTIONARY
 const EXERCISE_DISPLAY_NAMES: { [key: string]: string } = {
+  five_rm_overhead_press: "5RM Overhead Press", 
   five_rm_front_squat: "5RM Front Squat",
   five_rm_incline_bench: "5RM Incline Bench",
   five_rm_sumo_deadlift: "5RM Narrow Sumo Deadlift",
@@ -34,7 +35,7 @@ function App() {
   const [exerciseId, setExerciseId] = useState<string>('five_rm_front_squat'); 
   
   // State for Weight/Distance/Watts
-  const [resultValue, setResultValue] = useState<number>(225);
+  const [resultValue, setResultValue] = useState<number>(0);
   
   // New State for Time
   const [minutes, setMinutes] = useState<number>(0);
@@ -164,6 +165,7 @@ function App() {
                 <option value="five_rm_incline_bench">Incline Bench</option>
                 <option value="five_rm_sumo_deadlift">Narrow Sumo Deadlift</option>
                 <option value="five_rm_weighted_pull_up">Weighted Pull-up</option>
+                <option value="five_rm_overhead_press">Overhead Press</option>
               </optgroup>
               <optgroup label="Endurance & Speed">
                 <option value="four_hundred_meter_run">400m Run (Time)</option>
