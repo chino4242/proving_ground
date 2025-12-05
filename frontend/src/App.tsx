@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import RankCard from './components/RankCard';
 import { calculateRank, type RankResponse } from './services/api';
 import { THEMES } from './data/themes'; 
