@@ -109,7 +109,7 @@ function App() {
 
   return (
     <Authenticator>
-      {({ signOut, user }) => (
+      {({ signOut }) => (
         <div className="min-h-screen bg-zinc-900 text-white font-sans selection:bg-orange-500 selection:text-white">
           
           {/* NAVBAR */}
