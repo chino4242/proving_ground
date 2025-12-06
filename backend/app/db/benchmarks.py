@@ -1,8 +1,6 @@
-# backend/app/db/benchmarks.py
-
 MEN_STANDARDS = {
     "four_hundred_meter_run": {
-        "meta": {"displayName": "400m Run", "unit": "time", "scoring": "lower_is_better"},
+        "meta": {"displayName": "400m Run", "unit": "time", "scoring": "lower_is_better", "category": "Endurance & Speed"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 115}, {"level": "level2", "value": 90}, {"level": "level3", "value": 68}, {"level": "level4", "value": 62}, {"level": "level5", "value": 58}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 120}, {"level": "level2", "value": 95}, {"level": "level3", "value": 70}, {"level": "level4", "value": 64}, {"level": "level5", "value": 60}]},
@@ -12,7 +10,7 @@ MEN_STANDARDS = {
         ]
     },
     "one_mile_run": {
-        "meta": {"displayName": "1 Mile Run", "unit": "time", "scoring": "lower_is_better"},
+        "meta": {"displayName": "1 Mile Run", "unit": "time", "scoring": "lower_is_better", "category": "Endurance & Speed"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 630}, {"level": "level2", "value": 510}, {"level": "level3", "value": 435}, {"level": "level4", "value": 390}, {"level": "level5", "value": 345}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 645}, {"level": "level2", "value": 525}, {"level": "level3", "value": 450}, {"level": "level4", "value": 405}, {"level": "level5", "value": 360}]},
@@ -22,7 +20,7 @@ MEN_STANDARDS = {
         ]
     },
     "kettlebell_swing_test": {
-        "meta": {"displayName": "100 Kettlebell Swings (24kg)", "unit": "time", "scoring": "lower_is_better"},
+        "meta": {"displayName": "100 Kettlebell Swings (24kg)", "unit": "time", "scoring": "lower_is_better", "category": "Power & Capacity"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 600}, {"level": "level2", "value": 420}, {"level": "level3", "value": 300}, {"level": "level4", "value": 240}, {"level": "level5", "value": 180}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 615}, {"level": "level2", "value": 435}, {"level": "level3", "value": 315}, {"level": "level4", "value": 255}, {"level": "level5", "value": 195}]},
@@ -32,7 +30,7 @@ MEN_STANDARDS = {
         ]
     },
     "dead_hang": {
-        "meta": {"displayName": "Dead Hang", "unit": "seconds", "scoring": "higher_is_better"},
+        "meta": {"displayName": "Dead Hang", "unit": "seconds", "scoring": "higher_is_better", "category": "Power & Capacity"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 71}, {"level": "level2", "value": 88}, {"level": "level3", "value": 108}, {"level": "level4", "value": 118}, {"level": "level5", "value": 176}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 72}, {"level": "level2", "value": 90}, {"level": "level3", "value": 105}, {"level": "level4", "value": 116}, {"level": "level5", "value": 175}]},
@@ -42,7 +40,7 @@ MEN_STANDARDS = {
         ]
     },
     "max_distance_row": {
-        "meta": {"displayName": "6:00 Max Distance Row", "unit": "meters", "scoring": "higher_is_better"},
+        "meta": {"displayName": "6:00 Max Distance Row", "unit": "meters", "scoring": "higher_is_better", "category": "Endurance & Speed"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 1342}, {"level": "level2", "value": 1595}, {"level": "level3", "value": 1772}, {"level": "level4", "value": 1913}, {"level": "level5", "value": 2062}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 1328}, {"level": "level2", "value": 1575}, {"level": "level3", "value": 1750}, {"level": "level4", "value": 1895}, {"level": "level5", "value": 1963}]},
@@ -52,7 +50,7 @@ MEN_STANDARDS = {
         ]
     },
     "peak_watt_echo_bike": {
-        "meta": {"displayName": "10s Peak Watt Echo Bike", "unit": "watts", "scoring": "higher_is_better"},
+        "meta": {"displayName": "10s Peak Watt Echo Bike", "unit": "watts", "scoring": "higher_is_better", "category": "Power & Capacity"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 784}, {"level": "level2", "value": 909}, {"level": "level3", "value": 1530}, {"level": "level4", "value": 1568}, {"level": "level5", "value": 1764}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 770}, {"level": "level2", "value": 880}, {"level": "level3", "value": 1521}, {"level": "level4", "value": 1560}, {"level": "level5", "value": 1746}]},
@@ -62,7 +60,7 @@ MEN_STANDARDS = {
         ]
     },
     "max_calorie_echo_bike": {
-        "meta": {"displayName": "3:00 Max Calorie Echo Bike", "unit": "calories", "scoring": "higher_is_better"},
+        "meta": {"displayName": "3:00 Max Calorie Echo Bike", "unit": "calories", "scoring": "higher_is_better", "category": "Power & Capacity"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 49}, {"level": "level2", "value": 57}, {"level": "level3", "value": 69}, {"level": "level4", "value": 75}, {"level": "level5", "value": 83}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 50}, {"level": "level2", "value": 56}, {"level": "level3", "value": 68}, {"level": "level4", "value": 74}, {"level": "level5", "value": 85}]},
@@ -72,7 +70,7 @@ MEN_STANDARDS = {
         ]
     },
     "five_rm_front_squat": {
-        "meta": {"displayName": "5RM Front Squat", "unit": "xBW", "scoring": "higher_is_better"},
+        "meta": {"displayName": "5RM Front Squat", "unit": "xBW", "scoring": "higher_is_better", "category": "Strength (5 Rep Max)"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 0.64}, {"level": "level2", "value": 0.84}, {"level": "level3", "value": 1.05}, {"level": "level4", "value": 1.23}, {"level": "level5", "value": 1.57}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 0.65}, {"level": "level2", "value": 0.83}, {"level": "level3", "value": 1.02}, {"level": "level4", "value": 1.21}, {"level": "level5", "value": 1.60}]},
@@ -81,7 +79,7 @@ MEN_STANDARDS = {
         ]
     },
     "five_rm_incline_bench": {
-        "meta": {"displayName": "5RM Incline Bench", "unit": "xBW", "scoring": "higher_is_better"},
+        "meta": {"displayName": "5RM Incline Bench", "unit": "xBW", "scoring": "higher_is_better", "category": "Strength (5 Rep Max)"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 0.65}, {"level": "level2", "value": 0.81}, {"level": "level3", "value": 0.94}, {"level": "level4", "value": 1.08}, {"level": "level5", "value": 1.23}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 0.64}, {"level": "level2", "value": 0.83}, {"level": "level3", "value": 0.93}, {"level": "level4", "value": 1.07}, {"level": "level5", "value": 1.21}]},
@@ -90,7 +88,7 @@ MEN_STANDARDS = {
         ]
     },
     "five_rm_sumo_deadlift": {
-        "meta": {"displayName": "5RM Front Narrow Sumo Deadlift", "unit": "xBW", "scoring": "higher_is_better"},
+        "meta": {"displayName": "5RM Front Narrow Sumo Deadlift", "unit": "xBW", "scoring": "higher_is_better", "category": "Strength (5 Rep Max)"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 1.14}, {"level": "level2", "value": 1.39}, {"level": "level3", "value": 1.69}, {"level": "level4", "value": 1.96}, {"level": "level5", "value": 2.35}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 1.11}, {"level": "level2", "value": 1.38}, {"level": "level3", "value": 1.72}, {"level": "level4", "value": 1.94}, {"level": "level5", "value": 2.33}]},
@@ -99,7 +97,7 @@ MEN_STANDARDS = {
         ]
     },
     "five_rm_overhead_press": {
-        "meta": {"displayName": "5RM Overhead Press", "unit": "xBW", "scoring": "higher_is_better"},
+        "meta": {"displayName": "5RM Overhead Press", "unit": "xBW", "scoring": "higher_is_better", "category": "Strength (5 Rep Max)"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": .35}, {"level": "level2", "value": .45}, {"level": "level3", "value": .55}, {"level": "level4", "value": .65}, {"level": "level5", "value": .75}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": .36}, {"level": "level2", "value": .46}, {"level": "level3", "value": .56}, {"level": "level4", "value": .66}, {"level": "level5", "value": .76}]},
@@ -108,7 +106,7 @@ MEN_STANDARDS = {
         ]
     },
     "five_rm_weighted_pull_up": {
-        "meta": {"displayName": "5RM Weighted Pull-up", "unit": "xBW", "scoring": "higher_is_better"},
+        "meta": {"displayName": "5RM Weighted Pull-up", "unit": "xBW", "scoring": "higher_is_better", "category": "Strength (5 Rep Max)"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 1.00}, {"level": "level2", "value": 1.08}, {"level": "level3", "value": 1.20}, {"level": "level4", "value": 1.30}, {"level": "level5", "value": 1.40}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 1.00}, {"level": "level2", "value": 1.05}, {"level": "level3", "value": 1.20}, {"level": "level4", "value": 1.30}, {"level": "level5", "value": 1.39}]},
@@ -120,7 +118,7 @@ MEN_STANDARDS = {
 
 WOMEN_STANDARDS = {
     "four_hundred_meter_run": {
-        "meta": {"displayName": "400m Run", "unit": "time", "scoring": "lower_is_better"},
+        "meta": {"displayName": "400m Run", "unit": "time", "scoring": "lower_is_better", "category": "Endurance & Speed"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 132}, {"level": "level2", "value": 104}, {"level": "level3", "value": 78}, {"level": "level4", "value": 71}, {"level": "level5", "value": 67}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 138}, {"level": "level2", "value": 109}, {"level": "level3", "value": 81}, {"level": "level4", "value": 74}, {"level": "level5", "value": 69}]},
@@ -130,7 +128,7 @@ WOMEN_STANDARDS = {
         ]
     },
     "one_mile_run": {
-        "meta": {"displayName": "1 Mile Run", "unit": "time", "scoring": "lower_is_better"},
+        "meta": {"displayName": "1 Mile Run", "unit": "time", "scoring": "lower_is_better", "category": "Endurance & Speed"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 725}, {"level": "level2", "value": 587}, {"level": "level3", "value": 500}, {"level": "level4", "value": 449}, {"level": "level5", "value": 397}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 742}, {"level": "level2", "value": 604}, {"level": "level3", "value": 518}, {"level": "level4", "value": 466}, {"level": "level5", "value": 414}]},
@@ -140,7 +138,7 @@ WOMEN_STANDARDS = {
         ]
     },
     "kettlebell_swing_test": {
-        "meta": {"displayName": "100 Kettlebell Swings (16kg)", "unit": "time", "scoring": "lower_is_better"},
+        "meta": {"displayName": "100 Kettlebell Swings (16kg)", "unit": "time", "scoring": "lower_is_better", "category": "Power & Capacity"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 720}, {"level": "level2", "value": 480}, {"level": "level3", "value": 360}, {"level": "level4", "value": 285}, {"level": "level5", "value": 210}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 740}, {"level": "level2", "value": 500}, {"level": "level3", "value": 375}, {"level": "level4", "value": 300}, {"level": "level5", "value": 225}]},
@@ -150,7 +148,7 @@ WOMEN_STANDARDS = {
         ]
     },
     "dead_hang": {
-        "meta": {"displayName": "Dead Hang", "unit": "seconds", "scoring": "higher_is_better"},
+        "meta": {"displayName": "Dead Hang", "unit": "seconds", "scoring": "higher_is_better", "category": "Power & Capacity"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 53}, {"level": "level2", "value": 66}, {"level": "level3", "value": 81}, {"level": "level4", "value": 89}, {"level": "level5", "value": 132}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 54}, {"level": "level2", "value": 68}, {"level": "level3", "value": 79}, {"level": "level4", "value": 87}, {"level": "level5", "value": 131}]},
@@ -160,7 +158,7 @@ WOMEN_STANDARDS = {
         ]
     },
     "max_distance_row": {
-        "meta": {"displayName": "6:00 Max Distance Row", "unit": "meters", "scoring": "higher_is_better"},
+        "meta": {"displayName": "6:00 Max Distance Row", "unit": "meters", "scoring": "higher_is_better", "category": "Endurance & Speed"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 1141}, {"level": "level2", "value": 1356}, {"level": "level3", "value": 1506}, {"level": "level4", "value": 1626}, {"level": "level5", "value": 1753}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 1129}, {"level": "level2", "value": 1339}, {"level": "level3", "value": 1488}, {"level": "level4", "value": 1611}, {"level": "level5", "value": 1669}]},
@@ -170,7 +168,7 @@ WOMEN_STANDARDS = {
         ]
     },
     "peak_watt_echo_bike": {
-        "meta": {"displayName": "10s Peak Watt Echo Bike", "unit": "watts", "scoring": "higher_is_better"},
+        "meta": {"displayName": "10s Peak Watt Echo Bike", "unit": "watts", "scoring": "higher_is_better", "category": "Power & Capacity"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 549}, {"level": "level2", "value": 636}, {"level": "level3", "value": 1071}, {"level": "level4", "value": 1098}, {"level": "level5", "value": 1235}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 539}, {"level": "level2", "value": 616}, {"level": "level3", "value": 1065}, {"level": "level4", "value": 1092}, {"level": "level5", "value": 1222}]},
@@ -180,7 +178,7 @@ WOMEN_STANDARDS = {
         ]
     },
     "max_calorie_echo_bike": {
-        "meta": {"displayName": "3:00 Max Calorie Echo Bike", "unit": "calories", "scoring": "higher_is_better"},
+        "meta": {"displayName": "3:00 Max Calorie Echo Bike", "unit": "calories", "scoring": "higher_is_better", "category": "Power & Capacity"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 37}, {"level": "level2", "value": 43}, {"level": "level3", "value": 52}, {"level": "level4", "value": 56}, {"level": "level5", "value": 62}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 38}, {"level": "level2", "value": 42}, {"level": "level3", "value": 51}, {"level": "level4", "value": 56}, {"level": "level5", "value": 64}]},
@@ -190,7 +188,7 @@ WOMEN_STANDARDS = {
         ]
     },
     "five_rm_front_squat": {
-        "meta": {"displayName": "5RM Front Squat", "unit": "xBW", "scoring": "higher_is_better"},
+        "meta": {"displayName": "5RM Front Squat", "unit": "xBW", "scoring": "higher_is_better", "category": "Strength (5 Rep Max)"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 0.45}, {"level": "level2", "value": 0.59}, {"level": "level3", "value": 0.74}, {"level": "level4", "value": 0.86}, {"level": "level5", "value": 1.10}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 0.46}, {"level": "level2", "value": 0.58}, {"level": "level3", "value": 0.71}, {"level": "level4", "value": 0.85}, {"level": "level5", "value": 1.12}]},
@@ -199,7 +197,7 @@ WOMEN_STANDARDS = {
         ]
     },
     "five_rm_incline_bench": {
-        "meta": {"displayName": "5RM Incline Bench", "unit": "xBW", "scoring": "higher_is_better"},
+        "meta": {"displayName": "5RM Incline Bench", "unit": "xBW", "scoring": "higher_is_better", "category": "Strength (5 Rep Max)"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 0.39}, {"level": "level2", "value": 0.49}, {"level": "level3", "value": 0.56}, {"level": "level4", "value": 0.65}, {"level": "level5", "value": 0.74}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 0.38}, {"level": "level2", "value": 0.50}, {"level": "level3", "value": 0.56}, {"level": "level4", "value": 0.64}, {"level": "level5", "value": 0.73}]},
@@ -208,7 +206,7 @@ WOMEN_STANDARDS = {
         ]
     },
     "five_rm_sumo_deadlift": {
-        "meta": {"displayName": "5RM Front Narrow Sumo Deadlift", "unit": "xBW", "scoring": "higher_is_better"},
+        "meta": {"displayName": "5RM Front Narrow Sumo Deadlift", "unit": "xBW", "scoring": "higher_is_better", "category": "Strength (5 Rep Max)"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 0.80}, {"level": "level2", "value": 0.97}, {"level": "level3", "value": 1.18}, {"level": "level4", "value": 1.37}, {"level": "level5", "value": 1.65}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 0.78}, {"level": "level2", "value": 0.97}, {"level": "level3", "value": 1.20}, {"level": "level4", "value": 1.36}, {"level": "level5", "value": 1.63}]},
@@ -217,7 +215,7 @@ WOMEN_STANDARDS = {
         ]
     },
     "five_rm_overhead_press": {
-        "meta": {"displayName": "5RM Overhead Press", "unit": "xBW", "scoring": "higher_is_better"},
+        "meta": {"displayName": "5RM Overhead Press", "unit": "xBW", "scoring": "higher_is_better", "category": "Strength (5 Rep Max)"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": .2}, {"level": "level2", "value": .3}, {"level": "level3", "value": .4}, {"level": "level4", "value": .5}, {"level": "level5", "value": .6}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": .21}, {"level": "level2", "value": .31}, {"level": "level3", "value": .41}, {"level": "level4", "value": .51}, {"level": "level5", "value": .61}]},
@@ -226,7 +224,7 @@ WOMEN_STANDARDS = {
         ]
     },
     "five_rm_weighted_pull_up": {
-        "meta": {"displayName": "5RM Weighted Pull-up", "unit": "xBW", "scoring": "higher_is_better"},
+        "meta": {"displayName": "5RM Weighted Pull-up", "unit": "xBW", "scoring": "higher_is_better", "category": "Strength (5 Rep Max)"},
         "logic": [
             {"minAge": 18, "maxAge": 24, "thresholds": [{"level": "level1", "value": 1.00}, {"level": "level2", "value": 1.05}, {"level": "level3", "value": 1.12}, {"level": "level4", "value": 1.18}, {"level": "level5", "value": 1.24}]},
             {"minAge": 25, "maxAge": 34, "thresholds": [{"level": "level1", "value": 1.00}, {"level": "level2", "value": 1.03}, {"level": "level3", "value": 1.12}, {"level": "level4", "value": 1.18}, {"level": "level5", "value": 1.23}]},
