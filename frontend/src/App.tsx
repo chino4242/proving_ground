@@ -5,6 +5,7 @@ import { fetchUserAttributes } from 'aws-amplify/auth';
 import RankCard from './components/RankCard';
 import { calculateRank, type RankResponse } from './services/api';
 import { THEMES } from './data/themes'; 
+import UserProfile from './components/UserProfile';
 
 // 1. DEFINE TYPES
 interface ExerciseDefinition {
