@@ -2,6 +2,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 from app.core.logic import calculate_rank
+from app.db.benchmarks import MEN_STANDARDS
 
 router = APIRouter()
 
@@ -28,3 +29,21 @@ def get_rank(request: CalculationRequest):
         bodyweight= request.bodyweight
     )
     return result
+
+@router.get("/exercises")
+def get_exercises_meta():
+    """Returns a list of supported exercises for the frontend dropdowns.
+       Extracts ID, Display Name, and Unit from the python constants
+    """
+    exercises_list = []
+    
+    for key, data in MEN_STANDARDS.items():
+        meta = data["meta"]
+        exercises_list.append({
+            "id": key,
+            "displayName": meta["displayName"],
+            "unit": meta["unit"], # 'time', 'xBW', 'watts', 'meters', etc.
+            "scoring": meta["scoring"]
+        })
+        
+    return exercises_list
